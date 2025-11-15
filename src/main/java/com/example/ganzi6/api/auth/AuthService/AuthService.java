@@ -70,6 +70,7 @@ public class AuthService {
                 .user(user)
                 .build();
 
+        
         centerRepository.save(center);
     }
 
