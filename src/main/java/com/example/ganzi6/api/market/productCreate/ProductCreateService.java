@@ -1,6 +1,6 @@
-package com.example.ganzi6.api.center.productCreate;
+package com.example.ganzi6.api.market.productCreate;
 
-import com.example.ganzi6.api.center.productCreate.dto.ProductCreateRequest;
+import com.example.ganzi6.api.market.productCreate.dto.ProductCreateRequest;
 import com.example.ganzi6.domain.market.Market.Market;
 import com.example.ganzi6.domain.market.MarketRepository.MarketRepository;
 import com.example.ganzi6.domain.product.Product;

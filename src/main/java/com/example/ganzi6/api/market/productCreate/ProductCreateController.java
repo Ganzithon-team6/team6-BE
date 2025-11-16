@@ -1,6 +1,6 @@
-package com.example.ganzi6.api.center.productCreate;
+package com.example.ganzi6.api.market.productCreate;
 
-import com.example.ganzi6.api.center.productCreate.dto.ProductCreateRequest;
+import com.example.ganzi6.api.market.productCreate.dto.ProductCreateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

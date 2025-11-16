@@ -1,4 +1,4 @@
-package com.example.ganzi6.api.center.productCreate.dto;
+package com.example.ganzi6.api.market.productCreate.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
