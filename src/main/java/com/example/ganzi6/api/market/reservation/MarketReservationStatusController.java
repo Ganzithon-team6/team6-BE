@@ -3,6 +3,7 @@ package com.example.ganzi6.api.market.reservation;
 import com.example.ganzi6.api.market.reservation.dto.MarketReservationStatusResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 public class MarketReservationStatusController {
     private final MarketReservationStatusService marketReservationStatusService;
 
-    // GET /api/market/reservations/status?marketId=1
+    @PreAuthorize("hasRole('MARKET')")
     @GetMapping("/read/{marketId}")
     public ResponseEntity<List<MarketReservationStatusResponse>> getMarketReservations(
             @PathVariable Long marketId

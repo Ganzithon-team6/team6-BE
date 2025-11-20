@@ -23,6 +23,7 @@ public class ProductReadController {
         return productReadService.getProduct();
     }
 
+    @PreAuthorize("hasRole('CENTER')")
     @GetMapping("/get/detail/{productId}")
     public ProductReadDetailResponse getProductDetail(@PathVariable Long productId) {
         return productReadService.getDetailProduct(productId);
