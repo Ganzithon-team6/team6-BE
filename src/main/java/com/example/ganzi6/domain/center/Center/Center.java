@@ -12,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -23,6 +24,8 @@ public class Center {
 
     private String name;
     private String address;
+
+    private boolean verified; // 공공데이터 검증 여부 (검증내역값)
 
     @Column(length = 200)
     private String description;
@@ -38,5 +41,9 @@ public class Center {
 
     @OneToMany(mappedBy = "center", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Reservation> reservations = new ArrayList<>();
+
+    public void verify() {
+        this.verified = true;
+    }
 }
 
