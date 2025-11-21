@@ -6,6 +6,7 @@ import com.example.ganzi6.api.center.productRead.dto.ProductReadResponse;
 import com.example.ganzi6.api.center.productRead.dto.ProductReviewSummaryResponse;
 import com.example.ganzi6.domain.center.Center.Center;
 import com.example.ganzi6.domain.center.CenterRepository.CenterRepository;
+import com.example.ganzi6.domain.market.Market.Market;
 import com.example.ganzi6.domain.market.MarketRepository.MarketRepository;
 import com.example.ganzi6.domain.product.Product;
 import com.example.ganzi6.domain.product.ProductRepository;
@@ -53,7 +54,11 @@ public class ProductReadService {
         Long marketId = product.getMarket().getId();
 
         // 2) 이 마켓의 모든 리뷰 조회
-        List<Review> reviews = reviewRepository.findByMarketId(marketId);
+        Market market = marketRepository.findById(marketId)
+                .orElseThrow(() -> new IllegalArgumentException("마켓을 찾을 수 없습니다. id=" + marketId));
+
+        List<Review> reviews = reviewRepository.findByMarket(market);
+
         long marketReviewCount = reviews.size();   // 가게 기준 리뷰 수
 
         // 3) 리뷰 → DTO 변환
@@ -62,21 +67,16 @@ public class ProductReadService {
 
                     // 3-1) 센터 이름
                     String centerName = null;
-                    if (review.getCenterId() != null) {
-                        Center center = centerRepository.findById(review.getCenterId()).orElse(null);
-                        if (center != null) {
-                            centerName = center.getName();
-                        }
+                    Center center = review.getCenter();
+                    if (center != null) {
+                        centerName = center.getName();
                     }
 
                     // 3-2) 예약 → 상품 이름
                     String productNameFromReservation = null;
-                    if (review.getReservationId() != null) {
-                        Reservation reservation = reservationRepository.findById(review.getReservationId())
-                                .orElse(null);
-                        if (reservation != null && reservation.getProduct() != null) {
-                            productNameFromReservation = reservation.getProduct().getName();
-                        }
+                    Reservation reservation = review.getReservation();
+                    if (reservation != null && reservation.getProduct() != null) {
+                        productNameFromReservation = reservation.getProduct().getName();
                     }
 
                     return new ProductReviewSummaryResponse(

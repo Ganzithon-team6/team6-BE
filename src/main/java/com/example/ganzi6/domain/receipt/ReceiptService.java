@@ -1,6 +1,8 @@
 package com.example.ganzi6.domain.receipt;
 
 import com.example.ganzi6.api.receipt.dto.ReceiptUploadResponse;
+import com.example.ganzi6.domain.reservation.Reservation;
+import com.example.ganzi6.domain.reservation.ReservationRepository;
 import com.example.ganzi6.infra.ocr.OcrClient;
 import com.example.ganzi6.infra.ocr.dto.UpstageOcrResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +19,7 @@ public class ReceiptService {
     private final ReceiptStorageService receiptStorageService;
     private final OcrClient ocrClient;
     private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ReservationRepository reservationRepository;
 
     /*@Transactional
     public ReceiptUploadResponse uploadReceipt(Long reservationId,
@@ -46,15 +49,24 @@ public class ReceiptService {
      */
     @Transactional
     public ReceiptUploadResponse uploadAndVerify(Long reservationId,
-                                                 String expectedStoreName,
                                                  MultipartFile file) {
+
+        // 예약 조회
+        Reservation reservation = reservationRepository.findById(reservationId)
+                .orElseThrow(() -> new IllegalArgumentException("예약을 찾을 수 없습니다. id=" + reservationId));
+
+        // 예약에서 기대하는 가게 이름 가져오기
+        String expectedStoreName = null;
+        if (reservation.getMarket() != null) {
+            expectedStoreName = reservation.getMarket().getName();
+        }
 
         // 파일 저장
         String imageUrl = receiptStorageService.store(file);
 
         // PENDING 상태로 저장
         ReceiptVerification verification = ReceiptVerification.builder()
-                .reservationId(reservationId)
+                .reservation(reservation)
                 .imageUrl(imageUrl)
                 .status(ReceiptStatus.PENDING)
                 .build();
@@ -89,6 +101,7 @@ public class ReceiptService {
 
             // 간단 매칭 규칙: 가게 이름이 포함되어 있으면 성공
             boolean matched = false;
+
             if (expectedStoreName != null && !expectedStoreName.isBlank()) {
                 matched = fullText.toLowerCase().replace(" ", "")
                         .contains(expectedStoreName.toLowerCase().replace(" ", ""));
