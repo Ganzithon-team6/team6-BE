@@ -29,17 +29,23 @@ public class ReceiptController {
         return ResponseEntity.ok(ReceiptStatusResponse.from(v));
     }
 
+    /**
+     * 영수증 이미지 업로드 + 인증 요청
+     *
+     * form-data:
+     *  - reservationId: Long
+     *  - file: 이미지 파일
+     */
     @PostMapping(
             value = "/verify",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
     public ResponseEntity<ReceiptUploadResponse> uploadAndVerify(
             @RequestParam("reservationId") Long reservationId,
-            @RequestParam("storeName") String storeName,
             @RequestPart("file") MultipartFile file
     ) {
         ReceiptUploadResponse response =
-                receiptService.uploadAndVerify(reservationId, storeName, file);
+                receiptService.uploadAndVerify(reservationId, file);
 
         return ResponseEntity.ok(response);
     }

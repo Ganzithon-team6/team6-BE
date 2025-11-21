@@ -1,5 +1,6 @@
 package com.example.ganzi6.domain.receipt;
 
+import com.example.ganzi6.domain.reservation.Reservation;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,8 +17,9 @@ public class ReceiptVerification {
     private Long id;
 
     // 어떤 예약에 대한 영수증인지 (FK: reservation.id)
-    @Column(nullable = false)
-    private Long reservationId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id", nullable = false)
+    private Reservation reservation;
 
     // 영수증 이미지 경로
     @Column(nullable = false)
@@ -62,5 +64,9 @@ public class ReceiptVerification {
         this.status = ReceiptStatus.FAIL;
         this.ocrResultJson = ocrResultJson;
         this.failReason = failReason;
+    }
+
+    public Long getReservationId() {
+        return reservation != null ? reservation.getId() : null;
     }
 }

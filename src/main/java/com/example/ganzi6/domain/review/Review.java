@@ -1,5 +1,8 @@
 package com.example.ganzi6.domain.review;
 
+import com.example.ganzi6.domain.center.Center.Center;
+import com.example.ganzi6.domain.market.Market.Market;
+import com.example.ganzi6.domain.reservation.Reservation;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,9 +25,17 @@ public class Review {
 
     private LocalDateTime createdAt;
 
-    private Long reservationId;
-    private Long marketId;
-    private Long centerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservation_id", nullable = false)
+    private Reservation reservation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "market_id", nullable = false)
+    private Market market;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "center_id", nullable = false)
+    private Center center;
 
     @PrePersist
     public void onCreate() {
