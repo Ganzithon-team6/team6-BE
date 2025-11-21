@@ -17,4 +17,6 @@ public class CenterReservationStatusResponse {
     private LocalDateTime endTime;
     private Integer count;
     private String status;
+    //예약 시간
+    private LocalDateTime reservationTime;
 }

@@ -56,6 +56,7 @@ public class CenterReservationStatusService {
                     .endTime(endTime)
                     .count(reservation.getCount())
                     .status(reservation.getStatus())
+                    .reservationTime(reservation.getCreatedAt())
                     .build());
         }
 
