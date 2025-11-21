@@ -84,7 +84,8 @@ public class ProductReadService {
                             formatDateTime(review.getCreatedAt()),    // createdAt
                             marketReviewCount,                        // 해당 가게 전체 리뷰 수
                             centerName,                               // 센터 이름
-                            productNameFromReservation                // 예약과 연결된 상품 이름
+                            productNameFromReservation,                // 예약과 연결된 상품 이름
+                            review.getImageUrl()
                     );
                 })
                 .toList();

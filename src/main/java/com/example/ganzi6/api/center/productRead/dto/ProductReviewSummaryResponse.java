@@ -18,4 +18,5 @@ public class ProductReviewSummaryResponse {
     private String centerName;
     // 이 리뷰와 연결된 예약 → 상품 이름
     private String productName;
+    private String imageUrl;
 }
