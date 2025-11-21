@@ -20,4 +20,6 @@ public class MarketReservationStatusResponse {
     private Integer count;
     // 예약 상태(픽업 전 / 픽업 미완료 / 픽업 완료)
     private String status;
+    //예약 시간
+    private LocalDateTime reservationTime;
 }

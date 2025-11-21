@@ -41,6 +41,7 @@ public class MarketReservationStatusService {
                             .endTime(product.getEndTime())
                             .count(reservation.getCount())
                             .status(reservation.getStatus())
+                            .reservationTime(reservation.getCreatedAt())
                             .build()
             );
         }
