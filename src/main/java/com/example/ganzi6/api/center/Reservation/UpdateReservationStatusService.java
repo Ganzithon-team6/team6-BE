@@ -23,21 +23,22 @@ public class UpdateReservationStatusService {
         String currentStatus = reservation.getStatus();
 
         // 2) 현재 상태가 "픽업 전"일 때만 "픽업 완료"로 변경
-        if ("픽업 완료".equals(currentStatus)) {
-            reservation.setStatus("리뷰 작성");          // 상태 변경
-            reservation.setUpdatedAt(LocalDateTime.now()); // 수정 시각 갱신
-
-        }
         if ("픽업 전".equals(currentStatus)) {
-            reservation.setStatus("리뷰 작성");          // 상태 변경
+            reservation.setStatus("픽업 완료");          // 상태 변경
             reservation.setUpdatedAt(LocalDateTime.now()); // 수정 시각 갱신
 
         }
-        if ("리뷰 작성".equals(currentStatus)) {
+        if ("픽업 완료".equals(currentStatus)) {
             reservation.setStatus("작성 완료");          // 상태 변경
             reservation.setUpdatedAt(LocalDateTime.now()); // 수정 시각 갱신
 
         }
+        /*
+        if ("리뷰 작성".equals(currentStatus)) {
+            reservation.setStatus("작성 완료");          // 상태 변경
+            reservation.setUpdatedAt(LocalDateTime.now()); // 수정 시각 갱신
+
+        }*/
 
     }
 }
