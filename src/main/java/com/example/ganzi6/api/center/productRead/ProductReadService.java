@@ -42,7 +42,8 @@ public class ProductReadService {
                         product.getName(),                    // 물건 이름
                         product.getImageUrl(),                // 이미지 URL
                         product.getMarket().getAddress(),     // 마켓 주소
-                        formatEndTime(product.getEndTime())   // LocalDateTime → String
+                        formatEndTime(product.getEndTime()),   // LocalDateTime → String
+                        product.getCount()
                 ))
                 .toList();
     }
