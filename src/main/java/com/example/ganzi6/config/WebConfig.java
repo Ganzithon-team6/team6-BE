@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins(
-                        //"배포프론트꺼나중에추가",
+                        "https://fooda-theta.vercel.app",
                         "http://localhost:5173"
                 )
                 .allowedMethods("*")
