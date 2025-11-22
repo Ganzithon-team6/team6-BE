@@ -33,12 +33,7 @@ public class UpdateReservationStatusService {
             reservation.setUpdatedAt(LocalDateTime.now()); // 수정 시각 갱신
 
         }
-        /*
-        if ("리뷰 작성".equals(currentStatus)) {
-            reservation.setStatus("작성 완료");          // 상태 변경
-            reservation.setUpdatedAt(LocalDateTime.now()); // 수정 시각 갱신
 
-        }*/
 
     }
 }

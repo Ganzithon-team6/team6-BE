@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class CenterReservationStatusResponse {
     private Long reservationId;
+    private Long marketId;
     private String marketName;
     private LocalDateTime endTime;
     private Integer count;

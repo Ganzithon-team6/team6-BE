@@ -50,8 +50,11 @@ public class CenterReservationStatusService {
                     ? reservation.getMarket().getName()
                     : (product.getMarket() != null ? product.getMarket().getName() : null);
 
+            Long marketId = product.getMarket() != null ? product.getMarket().getId() : null;
+
             result.add(CenterReservationStatusResponse.builder()
                     .reservationId(reservation.getId())
+                    .marketId(marketId)
                     .marketName(marketName)
                     .endTime(endTime)
                     .count(reservation.getCount())
