@@ -13,4 +13,5 @@ public class ProductReadResponse {// 그냥 전체 조회하고 프론트에서 
     private String imageUrl;//물건 사진
     private String address; // 마켓 주소
     private String endTime; // 물건 마감기한
+    private Integer count;
 }
