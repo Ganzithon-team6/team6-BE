@@ -1,7 +1,8 @@
 # 푸다(Fooda) – 음식 기부 예약 플랫폼
-> 지역 가게의 남는 음식을 복지시설과 빠르고 안전하게 연결하는 음식 기부 매칭 서비스 <br>
-Food + -다(‘푸다’, 나누다)
----
+
+<img width="789" height="443" alt="image" src="https://github.com/user-attachments/assets/c31571ff-d39f-4417-9212-43d74bb89e1f" />
+
+<br><br>
 
 ## 목차
 
@@ -12,7 +13,7 @@ Food + -다(‘푸다’, 나누다)
 5. [팀 소개](#팀-소개)
 6. [기타 정보](#기타-정보)
 
----
+<br><br>
 
 ## 프로젝트 소개
 푸다는 매일 발생하는 베이커리·카페·식당 등의 남는 음식을
@@ -29,6 +30,9 @@ Food + -다(‘푸다’, 나누다)
 **본 리포지토리는 푸 서비스의 백엔드 리포지토리입니다.
 #### 프론트엔드 리포지토리: https://github.com/Ganzithon-team6/team6-FE
 
+
+<br><br>
+
 ## 문제 상황 & 해결 방식
 
 (1) 남는 음식 연결 부재
@@ -43,7 +47,7 @@ Food + -다(‘푸다’, 나누다)
 
 - 기록 미흡으로 기부 증빙과 수령 관리 불가
 
-✅ 해결책
+#### ✅ 해결책
 
 (1) 실시간 음식 매칭 시스템
 
@@ -57,31 +61,29 @@ Food + -다(‘푸다’, 나누다)
 
 - 예약·픽업·리뷰까지 전 과정을 자동 로그로 기록
 
----
+<br><br>
 
 ## 핵심 기능
 
-<img width="464" height="218" alt="image" src="https://github.com/user-attachments/assets/b5c07850-313b-42c8-b2dd-444434639a4c" />
+<img width="550" height="310" alt="image" src="https://github.com/user-attachments/assets/037a2d6c-6547-4e80-be6d-ba1d23c720c4" />
 
-<img width="445" height="220" alt="image" src="https://github.com/user-attachments/assets/8105771d-add2-41de-8632-234c7f865c50" />
+<img width="550" height="310" alt="image" src="https://github.com/user-attachments/assets/184a7618-a275-4d88-b151-950400834a6c" />
 
+<img width="550" height="310" alt="image" src="https://github.com/user-attachments/assets/4576d096-6507-44ca-85d7-c003c5d55afd" />
 
-<img width="471" height="215" alt="image" src="https://github.com/user-attachments/assets/9188c4f1-992e-4ea2-8e68-b627203f4166" />
+<img width="550" height="310" alt="image" src="https://github.com/user-attachments/assets/d7b56412-9c91-49b9-929f-9e5713df4c50" />
 
-
-<img width="386" height="227" alt="image" src="https://github.com/user-attachments/assets/26cc6648-80ea-4c69-b81e-064589a01cd6" />
-
-<img width="479" height="226" alt="image" src="https://github.com/user-attachments/assets/ed82e055-6bc8-493d-bdad-eeb900332800" />
+<img width="550" height="310" alt="image" src="https://github.com/user-attachments/assets/eff068f2-f8b4-4773-9f04-02865aa19944" />
 
 
----
+<br><br>
 
 ## 기술 스택
 
 <img width="290" height="226" alt="image" src="https://github.com/user-attachments/assets/c74aa845-90c4-467a-ae7a-a029a6198d01" />
 
 
----
+<br><br>
 
 ## 팀 소개
 
@@ -101,7 +103,7 @@ Food + -다(‘푸다’, 나누다)
       </a><br/>
       최영<br/>
       디자인, 프론트엔드<br/>
-      <small> </small>
+      <small> 랜딩/로그인/회원가입 · 복지시설용</small>
     </td>
     <td align="center">
       <a href="https://github.com/mang3858">
@@ -122,7 +124,7 @@ Food + -다(‘푸다’, 나누다)
   </tr>
 </table>
 
----
+<br><br>
 
 ## 기타 정보
 
