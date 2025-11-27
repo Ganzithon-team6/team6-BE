@@ -106,7 +106,7 @@ Food + -다(‘푸다’, 나누다)
       </a><br/>
       김소망<br/>
       백엔드<br/>
-      <small>Auth, OpenAPI, OCR, Review, Deploy</small>
+      <small>OpenAPI 기관 인증 · OCR 기반 리뷰 인증 로직 · 배포 구축</small>
     </td>
     <td align="center">
       <a href="https://github.com/KyungHoon03">
